@@ -10,12 +10,12 @@
     <a href="/users/new">Add A User</a>&nbsp;
   </P>
   <ul>
-    <form action="/restaurants" method="post">
+    <form action="/restaurants/new/yelp" method="post">
     <% @restaurants.each do |rest| %>
         <li>
-          <button type="submit" name="name" value="<%=rest.name%>" class="btn-link"><%=rest.name%></button>
-          <input id='hidden' type="hidden" name="rating" value="<%=rest.rating%>">
-          <input id='hidden' type="hidden" name="address" value="<%=rest.address[2..-3]%>">
+          <button type="submit" name="restaurant[name]" value="<%=rest.name%>" class="btn-link"><%=rest.name%></button>
+          <input id='hidden' type="hidden" name="restaurant[rating]" value="<%=rest.rating%>">
+          <input id='hidden' type="hidden" name="restaurant[address]" value="<%=rest.location.display_address.join(", ")%>">
         </li>
     <% end %>
   </form>
