@@ -20,9 +20,15 @@
     </form>
     <br />
 
+    <h3>Favorite Restaurants</h3>
+    <ul>
+      <% @user.user_restaurants.each do |user_r|  %>
+        <li><a href="/restaurants/<%= id %>"><%= Restaurant.find(user_r.restaurant_id).name %></a></li>
+      <% end unless @user.user_restaurants.empty? %>
+    </ul>
 
 
-    <h1>Restaurants they want to try:</h1>
+    <h3>Restaurants they want to try:</h3>
     <ul>
       <% @user.restaurant_ids.each do |id|  %>
         <li><a href="/restaurants/<%= id %>"><%= Restaurant.find(id).name %></a></li>

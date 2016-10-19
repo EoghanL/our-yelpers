@@ -48,6 +48,16 @@
       <input type="submit" name="submit" value="submit">
     </form>
 
+    <h2>Add to list of favorites</h2><br />
+    <form action="/restaurants/<%= @restaurant.id %>/addfav" method="post">
+      <select name="user_id">
+        <% @users.each do |user| %>
+          <option name="user_id" value="<%= user.id %>"><%= user.name %></option>
+        <% end %>
+      </select>
+      <input type="submit" name="submit" value="submit">
+    </form>
+
 <!-- DELETE THIS restaurant -->
 
   </body>
