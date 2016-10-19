@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>All Those Restaurants</title>
+  </head>
+  <body>
+
+    <P>
+      <a href="/restaurants/new">Add A Restaurants</a>&nbsp;
+      <a href="/users">See All Users</a>&nbsp;
+      <a href="/users/new">Add A User</a>&nbsp;
+    </P>
+    <ul>
+      <% @restaurants.each do |rest| %>
+          <li>
+            <a href="/restaurants/<%= rest.id %>"><%= rest.name %></a>
+          </li>
+      <% end %>
+    </ul>
+  </body>
+</html>

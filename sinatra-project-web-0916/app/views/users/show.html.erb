@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>One User</title>
+  </head>
+  <body>
+    <P>
+      <a href="/restaurants">See All Restaurants</a>&nbsp;
+      <a href="/restaurants/new">Add A Restaurants</a>&nbsp;
+      <a href="/users">See All Users</a>&nbsp;
+      <a href="/users/new">Add A User</a>&nbsp;
+    </P>
+
+
+    <br />
+    Name: <%= @user.name %><br />
+    <form action="/users/<%= @user.id %>/edit" method="get">
+      <input type="submit" value="Edit This User"/>
+    </form>
+    <br />
+
+
+
+    <h1>Restaurants they want to try:</h1>
+    <ul>
+      <% @user.restaurant_ids.each do |id|  %>
+        <li><a href="/restaurants/<%= id %>"><%= Restaurant.find(id).name %></a></li>
+      <% end unless @user.restaurant_ids.empty? %>
+    </ul>
+    <br />
+
+
+  </body>
+</html>

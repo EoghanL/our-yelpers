@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Edit a Restaurant</title>
+  </head>
+  <body>
+    <h1>Edit the restaurant <%= @restaurant.name %></h1><br />
+    <form action="/restaurants/<%= @restaurant.id %>" method="post">
+      <input id="hidden" type="hidden" name="_method" value="patch">
+      <label>Name:</label>
+      <input name="restaurant[name]" value="<%= @restaurant.name %>"/><br />
+      <label>Rating:</label>
+      <input name="restaurant[rating]" value="<%= @restaurant.rating %>"/><br />
+      <label>Address:</label>
+      <input name="restaurant[address]" value="<%= @restaurant.address %>"/><br />
+      <input type="submit" name="submit" value="submit">&nbsp;
+      <input id="hidden" type="hidden" name="_method" value="delete">
+      <input type="submit" value="Delete This Restaurant?">
+    </form>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <P>
+    <a href="/restaurants/new">Add A Restaurants</a>&nbsp;
+    <a href="/users">See All Users</a>&nbsp;
+    <a href="/users/new">Add A User</a>&nbsp;
+  </P>
+  <ul>
+    <form action="/restaurants" method="post">
+    <% @restaurants.each do |rest| %>
+        <li>
+          <button type="submit" name="name" value="<%=rest.name%>" class="btn-link"><%=rest.name%></button>
+          <input id='hidden' type="hidden" name="rating" value="<%=rest.rating%>">
+          <input id='hidden' type="hidden" name="address" value="<%=rest.address[2..-3]%>">
+        </li>
+    <% end %>
+  </form>
+  </ul>
+</html>
